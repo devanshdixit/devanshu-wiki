@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Devanshu Dixit</title>
-  <meta name="description" content="Devanshu Dixit is a data scientist and analytics engineer and a master's student at Virginia Tech. He works on fraud detection, experimentation, and the reliability of machine learning.">
+  <title>Devanshu Dixit | Engineer, Virginia Tech</title>
+  <meta name="description" content="Devanshu Dixit is an engineer and Virginia Tech master's student who builds data and machine learning systems and tests whether their results can be trusted: fraud detection, LLM inference, and AI for mathematics.">
   <link rel="canonical" href="https://devanshu.wiki/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta property="og:title" content="Devanshu Dixit">
-  <meta property="og:description" content="Data scientist and analytics engineer. Master's student at Virginia Tech.">
+  <meta property="og:title" content="Devanshu Dixit | Engineer, Virginia Tech">
+  <meta property="og:description" content="I build data and machine learning systems, and test whether their results can be trusted.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://devanshu.wiki/">
   <meta name="theme-color" content="#FFFFFF">
@@ -23,8 +23,10 @@
     "name": "Devanshu Dixit",
     "url": "https://devanshu.wiki",
     "jobTitle": "Graduate Research Assistant",
+    "description": "Engineer who builds data and machine learning systems and tests whether their results can be trusted.",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "Virginia Tech" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Mumbai" },
+    "knowsAbout": ["Machine learning evaluation", "Fraud detection", "Anomaly detection", "LLM inference systems", "Time-series imputation", "Experimentation and A/B testing", "Data engineering"],
     "sameAs": [
       "https://www.linkedin.com/in/devanshudixit/",
       "https://github.com/devanshdixit",
@@ -39,7 +41,7 @@
 
   <header>
     <h1>Devanshu Dixit</h1>
-    <p class="intro">I'm a data scientist and analytics engineer, and a master's student at Virginia Tech. I turn messy data into forecasts, experiments and decisions, and I study how far machine learning output can be trusted.</p>
+    <p class="role">Engineer. Graduate research assistant at Virginia Tech.</p>
     <ul class="links">
       <li><a href="mailto:devanshudixit@vt.edu">Email</a></li>
       <li><a href="https://github.com/devanshdixit">GitHub</a></li>
@@ -51,34 +53,120 @@
     </ul>
   </header>
 
+  <section aria-labelledby="about">
+    <h2 id="about">About</h2>
+    <p class="intro">I'm an engineer who works on making machine learning systems measurably trustworthy. At Virginia Tech I test whether fraud-detection methods for a GSMA-partnered SIM-farm project hold up on new data, using leakage checks, calibration and time-based validation. My paper at the MATH-AI workshop asks what a failed proof check really means when a language model proposes a mathematical conjecture. Before graduate school I built personalization models and data pipelines in industry, and I'm now building an LLM inference server from scratch.</p>
+    <p>I like problems where the first answer is easy and the honest answer is hard: a model that scores well on the wrong split, a proof that fails for the wrong reason. I write the check before I trust the result.</p>
+    <ul class="tags" aria-label="Topics">
+      <li>Model evaluation</li>
+      <li>Fraud and anomaly detection</li>
+      <li>LLM inference systems</li>
+      <li>AI for mathematics</li>
+      <li>Time-series imputation</li>
+      <li>Experimentation</li>
+      <li>Data engineering</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="demo">
+    <h2 id="demo">A small demonstration</h2>
+    <p>A curve is rebuilt from a handful of samples of a signal. It is the same sparse-to-dense problem as my cellular signal work. Slide to change how many samples it gets.</p>
+    <figure class="demo">
+      <canvas id="demo-canvas" role="img" aria-label="A signal drawn in grey, the curve rebuilt from sampled points drawn in blue, and the gap between them shaded"></canvas>
+      <div class="controls">
+        <label for="demo-n">Samples given: <output id="demo-n-out">16</output></label>
+        <input id="demo-n" type="range" min="6" max="80" value="16" step="1">
+      </div>
+      <dl class="scores" aria-live="polite">
+        <div class="given"><dt>Error on the points it was given</dt><dd id="demo-given">0.000</dd></div>
+        <div class="unseen"><dt>Error on points it never saw</dt><dd id="demo-unseen">0.000</dd></div>
+      </dl>
+      <figcaption>Grey line: the true signal. Blue line: the rebuilt curve. Dots: the samples it was given. The curve passes through every dot, so it scores perfectly on them. Only the second number says how good the rebuild is. Judging a model on the data it was given is the first mistake I check for.</figcaption>
+      <noscript><p>This demonstration needs JavaScript.</p></noscript>
+    </figure>
+  </section>
+
   <section aria-labelledby="highlights">
     <h2 id="highlights">Highlights</h2>
     <ul class="plain">
       <li><strong>Lifted customer retention 25% and conversion 18%</strong> by building personalization and recommendation models at Sprect.com.</li>
-      <li><strong>About 30% less manual data work</strong> for client teams at Novvum, through automated ETL, validation and de-duplication.</li>
+      <li><strong>Cut client teams' manual data work by about 30%</strong> with automated ETL, validation and de-duplication at Novvum.</li>
       <li><strong>2nd of 1,061 teams</strong> in the SAIR Mathematics Distillation Challenge.</li>
       <li><strong>Co-authored a poster</strong> accepted at the MATH-AI Workshop at NeurIPS 2026.</li>
     </ul>
   </section>
 
-  <section aria-labelledby="now">
-    <h2 id="now">Now</h2>
-    <p>I'm testing whether fraud-detection methods for a GSMA-partnered SIM-farm project hold up on new data. On my own time I'm building an LLM inference server from scratch, aiming to finish by February 2027, and starting work on rebuilding dense cellular signal measurements from sparse ones.</p>
+  <section aria-labelledby="work">
+    <h2 id="work">Selected work</h2>
+
+    <article class="case">
+      <h3>SIM-farm fraud detection</h3>
+      <p class="meta">Virginia Tech with GSMA, Aug 2026 to present</p>
+      <dl>
+        <dt>Problem</dt>
+        <dd>Detect SIM farms from high-frequency network telemetry, and know whether the detection methods still work on data they haven't seen.</dd>
+        <dt>What I built</dt>
+        <dd>Python workflows for anomaly detection, automated validation and statistical evaluation, plus checks for distribution shift, temporal autocorrelation, feature importance, leakage, calibration and time-based validation.</dd>
+        <dt>Status</dt>
+        <dd>Ongoing research under Yaling Yang.</dd>
+      </dl>
+    </article>
+
+    <article class="case">
+      <h3>Beyond the Compile Check</h3>
+      <p class="meta">Poster, MATH-AI Workshop at NeurIPS 2026, with Yaling Yang</p>
+      <dl>
+        <dt>Problem</dt>
+        <dd>When a language model's math conjecture fails to compile in Lean 4, is it false or just unproven?</dd>
+        <dt>What I built</dt>
+        <dd>A pipeline that has a model propose conjectures, checks them in Lean 4, and tests the failures to tell false claims from unproven ones. It was run on 240 AI-generated claims.</dd>
+        <dt>Result</dt>
+        <dd>Accepted as a poster at the workshop. <a href="https://mathai-2026.github.io">Workshop site</a></dd>
+      </dl>
+    </article>
+
+    <article class="case">
+      <h3>LLM inference server</h3>
+      <p class="meta">Personal project, target February 2027</p>
+      <dl>
+        <dt>Problem</dt>
+        <dd>Understand how language models are served efficiently by building the serving layer myself.</dd>
+        <dt>What I'm building</dt>
+        <dd>A server written from scratch: one request at a time first, then continuous batching and KV-cache management, benchmarked against vLLM.</dd>
+        <dt>Status</dt>
+        <dd>In progress.</dd>
+      </dl>
+    </article>
+
+    <article class="case">
+      <h3>Cellular signal reconstruction</h3>
+      <p class="meta">Research, early stage</p>
+      <dl>
+        <dt>Problem</dt>
+        <dd>Cellular measurements arrive every few seconds. Can they be rebuilt about ten times finer in time?</dd>
+        <dt>What I'm building</dt>
+        <dd>Time-series imputation baselines, evaluated only on sessions the model has never seen, so the results can't leak from training data.</dd>
+        <dt>Status</dt>
+        <dd>Data inspected and evaluation rules set. Training has not started.</dd>
+      </dl>
+    </article>
   </section>
 
   <section aria-labelledby="experience">
     <h2 id="experience">Experience</h2>
 
     <article class="entry">
-      <div class="head"><h3>Graduate Research Assistant, Virginia Tech</h3><p class="dates">Aug 2026 – present</p></div>
+      <div class="head"><h3>Graduate Research Assistant, Virginia Tech</h3><p class="dates">Aug 2026 to present</p></div>
+      <p>Research on fraud detection for a GSMA-partnered project, focused on whether the methods are reliable.</p>
       <ul>
-        <li>Support a GSMA-partnered SIM-farm fraud detection project: analyze high-frequency telemetry and build Python workflows for anomaly detection, automated validation and statistical evaluation.</li>
-        <li>Test whether the methods are reliable and generalize, using distribution similarity tests, temporal autocorrelation analysis, feature-importance evaluation, leakage checks, calibration analysis and time-based validation.</li>
+        <li>Analyze high-frequency telemetry and build Python workflows for anomaly detection, automated validation and statistical evaluation.</li>
+        <li>Test generalization with distribution similarity tests, temporal autocorrelation analysis, feature-importance evaluation, leakage checks, calibration analysis and time-based validation.</li>
       </ul>
     </article>
 
     <article class="entry">
-      <div class="head"><h3>Software Engineer, founding team, Sprect.com</h3><p class="dates">Jan 2024 – May 2025</p></div>
+      <div class="head"><h3>Software Engineer, founding team, Sprect.com</h3><p class="dates">Jan 2024 to May 2025</p></div>
+      <p>Built the models and experiments behind customer personalization at an early-stage company.</p>
       <ul>
         <li>Built personalization and recommendation models from behavioral and product data, raising customer retention by 25% and conversion by 18%.</li>
         <li>Designed and evaluated A/B tests: hypotheses, primary metrics, guardrails, sample-size considerations and confidence intervals, ending in decision-ready recommendations.</li>
@@ -88,41 +176,22 @@
     </article>
 
     <article class="entry">
-      <div class="head"><h3>Data Engineer, Novvum</h3><p class="dates">Jan 2022 – Dec 2023</p></div>
+      <div class="head"><h3>Data Engineer, Novvum</h3><p class="dates">Jan 2022 to Dec 2023</p></div>
+      <p>Turned SaaS clients' raw data into reporting their teams could rely on.</p>
       <ul>
-        <li>Built SQL ETL pipelines, REST API integrations, Power BI dashboards and reporting workflows that turned SaaS-client data into customer, product and operational insight.</li>
+        <li>Built SQL ETL pipelines, REST API integrations, Power BI dashboards and reporting workflows for customer, product and operational insight.</li>
         <li>Automated transformation, validation, de-duplication and quality control, cutting client teams' manual effort by about 30%.</li>
         <li>Developed measurement frameworks for customer engagement, operational performance and business outcomes.</li>
       </ul>
     </article>
   </section>
 
-  <section aria-labelledby="projects">
-    <h2 id="projects">Research and projects</h2>
-
-    <article class="entry">
-      <h3>Beyond the Compile Check</h3>
-      <p>When a language model's math conjecture fails to compile in Lean 4, is it false or just unproven? We tested 240 AI-generated claims to separate probably false ones from merely unproven ones. Written with Yaling Yang.</p>
-      <p class="status">Poster at the MATH-AI Workshop, NeurIPS 2026. <a href="https://mathai-2026.github.io">Workshop site</a></p>
-    </article>
-
-    <article class="entry">
-      <h3>SAIR Mathematics Distillation Challenge</h3>
-      <p>Built AI approaches for mathematical reasoning in an international competition.</p>
-      <p class="status">2nd of 1,061 teams.</p>
-    </article>
-
-    <article class="entry">
-      <h3>LLM inference server</h3>
-      <p>A serving layer built from scratch: one request at a time first, then continuous batching and KV-cache management, benchmarked against vLLM.</p>
-      <p class="status">In progress. Target: February 2027.</p>
-    </article>
-
-    <article class="entry">
-      <h3>Cellular signal reconstruction</h3>
-      <p>Rebuilding dense cellular measurements from sparse ones, about ten times finer in time, and evaluating only on sessions the model has never seen.</p>
-      <p class="status">Early stage.</p>
-    </article>
+  <section aria-labelledby="publications">
+    <h2 id="publications">Publications and recognition</h2>
+    <ul class="plain">
+      <li>Devanshu Dixit, Yaling Yang. <em>Beyond the Compile Check: Separating False from Unproven in LLM Conjecture Generation.</em> Poster, MATH-AI Workshop at NeurIPS 2026.</li>
+      <li>2nd of 1,061 teams, SAIR Mathematics Distillation Challenge, where I built AI approaches for mathematical reasoning.</li>
+    </ul>
   </section>
 
   <section aria-labelledby="education">
@@ -142,9 +211,10 @@
   </section>
 
   <footer>
-    <p>Last updated September 2026.</p>
+    <p>Last updated October 2026.</p>
   </footer>
 
 </main>
+<script src="script.js" defer></script>
 </body>
 </html>
